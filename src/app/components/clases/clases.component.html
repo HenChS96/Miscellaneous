@@ -1,0 +1,26 @@
+<div [ngClass]="alertD" class="alert" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Aww yeah, you successfully read this important alert message.</p>
+</div>
+
+<button type="button" class="btn btn-info m-5" (click)="alertD='alert-info'">INFO</button>
+<button type="button" class="btn btn-success" (click)="alertD='alert-success'">SUCCESS</button>
+
+<br>
+<br>
+
+<h3 [ngClass]="{ 'text-danger': properties.danger, 'text-info': !properties.danger }">Hola Mundo</h3>
+
+<button (click)="properties.danger = !properties.danger" type="button" name="button" class="btn" [ngClass]="{'text-danger': properties.danger, 'btn-info':!properties.danger}">
+  Change
+</button>
+
+<br><br>
+
+<h3>Async Process</h3>
+
+<button (click)="execute()" type="button" name="button" class="btn btn-primary" [disabled]="loading">
+<i [ngClass]="{ 'fa-save':!loading, 'fa-sync-alt fa-spin': loading }" class="fa fa-refresh fa-spin"></i> <!--this ngClass works like an IF condition-->
+<span *ngIf="!loading"> Save Changes</span>
+<span *ngIf="loading"> Wait a moment please</span>
+</button>
